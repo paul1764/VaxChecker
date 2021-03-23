@@ -1,6 +1,6 @@
-from selenium.webdriver import Chrome
+from selenium.webdriver import Firefox
 from selenium.webdriver.support.ui import Select
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 import numpy as np
 import pandas as pd
 import smtplib
@@ -8,11 +8,11 @@ import time
 
 # ----------Fill Me Out---------
 # Web Settings
-webdriver = r"C:\chromedriver.exe" # download: https://chromedriver.chromium.org
+webdriver = "/usr/bin/geckodriver" # download: https://github.com/mozilla/geckodriver/releases
 sleeptime = 300  # sleep time (s) between URL calls
 max_distance = 100  # max distance (mi) from you
 state = 'IL'  # state for shots
-send_email = True  # send email (otherwise just print to screen)
+send_email = False  # send email (otherwise just print to screen)
 max_total_runtime = np.inf  # max time (s) to run script (defaults to infinite)
 
 # E-mail notification settings (can be ignored for send_mail = False)
@@ -39,10 +39,10 @@ df_column_names = ['store', 'city', 'state', 'zip',
 df_column_names_short = ['store', 'city', 'zip', 'distance']
 
 # Launch virtual browser
-chrome_options = Options()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument('log-level=3')
-driver = Chrome(executable_path=webdriver,options=chrome_options)
+firefox_options = FirefoxOptions()
+firefox_options.add_argument("--headless")
+firefox_options.add_argument('log-level=3')
+driver = Firefox(executable_path=webdriver, options=firefox_options)
 
 # Search for shots!
 while elapsed_time < max_total_runtime:
