@@ -1,3 +1,6 @@
+# UPDATE
+The website that this script pulls data from ([vaxxmax.com](http://vaxxmax.com/)) is no longer updated, so this tool will not find appointments anymore.
+
 # Purpose
 The website [vaxxmax.com](http://vaxxmax.com/) automatically checks CVS, Walgreens, Walmart, and Rite-Aid for available COVID-19 vaccines. However, it doesn't have a way to notify you if an appointment opens up in your area. This script will check vaxxmax on your behalf and notify you when a suitable appointment opens up!
 
